@@ -14,7 +14,7 @@ import matplotlib.font_manager as fm  # 폰트 관련 용도 as fm
 # fpath = os.path.join(os.getcwd(), "customFonts/NanumGothic-Bold.ttf")
 # prop = fm.FontProperties(fname=fpath)
 
-font_dirs = [os.getcwd() + '\customFonts']
+font_dirs = [os.getcwd() + '/customFonts']
 st.write(font_dirs)
 font_files = fm.findSystemFonts(fontpaths=font_dirs)
 
