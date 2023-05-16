@@ -9,7 +9,9 @@ import numpy as np
 import os
 import matplotlib.font_manager as fm  # 폰트 관련 용도 as fm
 
-
+def unique(list):
+    x = np.array(list)
+    return np.unique(x)
 
 # fpath = os.path.join(os.getcwd(), "customFonts/NanumGothic-Bold.ttf")
 # prop = fm.FontProperties(fname=fpath)
@@ -20,16 +22,16 @@ font_files = fm.findSystemFonts(fontpaths=font_dirs)
 for font_file in font_files:
     fm.fontManager.addfont(font_file)
 
-fm._load_fontmanager(try_read_cache=True)
+# fm._load_fontmanager(try_read_cache=False)
 
 fontNames = [f.name for f in fm.fontManager.ttflist]
 st.write(fontNames)
 
 def main():
     # st.write(font_files)
-    fontname = st.selectbox("폰트 선택", fontNames)
+    fontname = st.selectbox("폰트 선택", unique(fontNames))
 
-    plt.rc('font', family=fontNames)
+    plt.rc('font', family=fontname)
     tips = sns.load_dataset("tips")
     fig, ax = plt.subplots()
     sns.scatterplot(data=tips, x = 'total_bill', y = 'tip', hue='day')
