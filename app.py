@@ -32,6 +32,7 @@ def main():
     fontRegistered()
     fontNames = [f.name for f in fm.fontManager.ttflist]
     # fontNames = [f.name for f in fm.fontManager.ttflist]
+    st.write(fontNames)
     fontname = st.selectbox("폰트 선택", unique(fontNames))
 
     plt.rc('font', family=fontname)
