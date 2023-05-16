@@ -33,7 +33,7 @@ def main():
     st.write(names)
     fontname = st.selectbox("폰트 선택", names)
 
-    plt.rcParams['font.family']=str(fontname)
+    plt.rc('font', family=fontname)
     tips = sns.load_dataset("tips")
     fig, ax = plt.subplots()
     sns.scatterplot(data=tips, x = 'total_bill', y = 'tip', hue='day')
