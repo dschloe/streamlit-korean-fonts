@@ -27,7 +27,7 @@ st.write(fontNames)
 
 def main():
     # st.write(font_files)
-    fontname = st.selectbox("폰트 선택", fontNames)
+    # fontname = st.selectbox("폰트 선택", fontNames)
 
     plt.rc('font', family="KoPubWorldBatang")
     tips = sns.load_dataset("tips")
