@@ -29,7 +29,7 @@ def main():
     # st.write(font_files)
     fontname = st.selectbox("폰트 선택", fontNames)
 
-    plt.rc('font', family=fontname)
+    plt.rc('font', family="KoPubWorldBatang")
     tips = sns.load_dataset("tips")
     fig, ax = plt.subplots()
     sns.scatterplot(data=tips, x = 'total_bill', y = 'tip', hue='day')
