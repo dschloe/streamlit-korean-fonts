@@ -16,19 +16,21 @@ def unique(list):
 # fpath = os.path.join(os.getcwd(), "customFonts/NanumGothic-Bold.ttf")
 # prop = fm.FontProperties(fname=fpath)
 
-font_dirs = [os.getcwd() + '/customFonts']
-font_files = fm.findSystemFonts(fontpaths=font_dirs)
+@st.cache_data
+def fontRegistered():
+    font_dirs = [os.getcwd() + '/customFonts']
+    font_files = fm.findSystemFonts(fontpaths=font_dirs)
 
-for font_file in font_files:
-    fm.fontManager.addfont(font_file)
+    for font_file in font_files:
+        fm.fontManager.addfont(font_file)
 
-# fm._load_fontmanager(try_read_cache=False)
-
-fontNames = [f.name for f in fm.fontManager.ttflist]
-st.write(fontNames)
+    fm._load_fontmanager(try_read_cache=False)
+    
 
 def main():
     # st.write(font_files)
+    fontRegistered()
+    fontNames = [f.name for f in fm.fontManager.ttflist]
     fontname = st.selectbox("폰트 선택", unique(fontNames))
 
     plt.rc('font', family=fontname)
