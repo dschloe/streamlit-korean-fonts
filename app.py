@@ -31,8 +31,9 @@ def fontRegistered():
 def main():
     # st.write(font_files)
     fontRegistered()
-    fontNames = [f.name for f in fm.fontManager.ttflist]
-    # fontNames = [f.name for f in fm.fontManager.ttflist]
+    ttfFontNames = [f.name for f in fm.fontManager.ttflist]
+    otfFontNames = [f.name for f in fm.fontManager.otflist]
+    fontNames = ttfFontNames + otfFontNames
     # st.write(fontNames)
     fontname = st.selectbox("폰트 선택", unique(fontNames))
 
