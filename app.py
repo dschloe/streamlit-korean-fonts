@@ -27,18 +27,11 @@ def fontRegistered():
 
     fm._load_fontmanager(try_read_cache=False)
     
-def otfFileRegsitered():
-    font_dirs = [os.getcwd() + '/customFonts']
-    font_files = fm.findSystemFonts(fontpaths=font_dirs)
-    st.write(font_files)
 
 def main():
-    # st.write(font_files)
+    
     fontRegistered()
-    ttfFontNames = [f.name for f in fm.fontManager.ttflist]
-    # otfFontNames = [f.name for f in fm.fontManager.otflist]
-    fontNames = ttfFontNames
-    # st.write(fontNames)
+    fontNames = [f.name for f in fm.fontManager.ttflist]
     fontname = st.selectbox("폰트 선택", unique(fontNames))
 
     plt.rc('font', family=fontname)
