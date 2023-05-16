@@ -20,16 +20,16 @@ font_files = fm.findSystemFonts(fontpaths=font_dirs)
 for font_file in font_files:
     fm.fontManager.addfont(font_file)
 
-fm._load_fontmanager(try_read_cache=False)
+fm._load_fontmanager(try_read_cache=True)
 
 fontNames = [f.name for f in fm.fontManager.ttflist]
 st.write(fontNames)
 
 def main():
     # st.write(font_files)
-    # fontname = st.selectbox("폰트 선택", fontNames)
+    fontname = st.selectbox("폰트 선택", fontNames)
 
-    plt.rc('font', family="KoPubWorldBatang")
+    plt.rc('font', family=fontNames)
     tips = sns.load_dataset("tips")
     fig, ax = plt.subplots()
     sns.scatterplot(data=tips, x = 'total_bill', y = 'tip', hue='day')
