@@ -26,12 +26,9 @@ for font_file in font_files:
 
 fm._load_fontmanager(try_read_cache=False)
 
-for f in fm.fontManager.ttflist:
-   st.write(f.name)
-
 def main():
-    st.write(names)
-    fontname = st.selectbox("폰트 선택", names)
+    st.write(font_files)
+    fontname = st.selectbox("폰트 선택", font_files)
 
     plt.rc('font', family=fontname)
     tips = sns.load_dataset("tips")
