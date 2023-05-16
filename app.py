@@ -22,6 +22,7 @@ def fontRegistered():
     font_files = fm.findSystemFonts(fontpaths=font_dirs)
 
     for font_file in font_files:
+        st.write(font_file)
         fm.fontManager.addfont(font_file)
 
     fm._load_fontmanager(try_read_cache=False)
@@ -32,7 +33,7 @@ def main():
     fontRegistered()
     fontNames = [f.name for f in fm.fontManager.ttflist]
     # fontNames = [f.name for f in fm.fontManager.ttflist]
-    st.write(fontNames)
+    # st.write(fontNames)
     fontname = st.selectbox("폰트 선택", unique(fontNames))
 
     plt.rc('font', family=fontname)
