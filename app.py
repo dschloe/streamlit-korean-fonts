@@ -15,6 +15,7 @@ import matplotlib.font_manager as fm  # 폰트 관련 용도 as fm
 # prop = fm.FontProperties(fname=fpath)
 
 font_dirs = [os.getcwd() + '\customFonts']
+st.write(font_dirs)
 font_files = fm.findSystemFonts(fontpaths=font_dirs)
 
 names = []
