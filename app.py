@@ -15,20 +15,19 @@ import matplotlib.font_manager as fm  # 폰트 관련 용도 as fm
 # prop = fm.FontProperties(fname=fpath)
 
 font_dirs = [os.getcwd() + '/customFonts']
-st.write(font_dirs)
 font_files = fm.findSystemFonts(fontpaths=font_dirs)
 
-names = []
 for font_file in font_files:
-    st.write(font_file)
-    font_name = fm.FontProperties(fname=font_file, size=10).get_name()
-    names.append(font_name)
+    fm.fontManager.addfont(font_file)
 
 fm._load_fontmanager(try_read_cache=False)
 
+fontNames = [f.name for f in fm.fontManager.ttflist]
+st.write(fontNames)
+
 def main():
-    st.write(font_files)
-    fontname = st.selectbox("폰트 선택", font_files)
+    # st.write(font_files)
+    fontname = st.selectbox("폰트 선택", fontNames)
 
     plt.rc('font', family=fontname)
     tips = sns.load_dataset("tips")
